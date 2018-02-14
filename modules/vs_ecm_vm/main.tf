@@ -16,14 +16,14 @@ resource "vsphere_virtual_machine" "vm" {
   }
 
   disk {
-    name             = "${var.name}.vmdk"
+    label            = "${var.name}.vmdk"
     size             = "${var.disk_0_size}"
     eagerly_scrub    = "${var.disk_0_eagerly_scrub}"
     thin_provisioned = "${var.disk_0_thin_provisioned}"
   }
 
   disk {
-    name             = "${var.name}_opt.vmdk"
+    label            = "${var.name}_opt.vmdk"
     size             = "${var.disk_1_size}"
     thin_provisioned = "${var.disk_1_thin_provisioned}"
     unit_number      = "${var.disk_1_unit_number}"
