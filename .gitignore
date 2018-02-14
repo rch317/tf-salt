@@ -1,0 +1,5 @@
+modules
+.terraform
+terraform.tfstate
+*.backup
+plan.out
