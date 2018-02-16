@@ -1,7 +1,7 @@
 node {
     stage('Checkout') {
       def tfHome = tool name: 'Terraform', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
-      env.PATH = ${tfHome}:${env.PATH}
+      env.PATH = "${tfHome}:${env.PATH}"
     }
     stage('Build') {
         // slackSend channel: 'ecm-notifications', color: 'good', message: "Building ${env.JOB_NAME} - ${env.BUILD_NUMBER} (${env.BUILD_URL})  ${env.BUILD_TAG}"
