@@ -2,6 +2,13 @@ node {
     stage('Checkout') {
       def tfHome = tool name: 'Terraform', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
       env.PATH = "${tfHome}:${env.PATH}"
+
+      // Get some code from a GitHub repository
+      checkout([$class: 'GitSCM',
+        branches: [[name: '*/master']],
+        doGenerateSubmoduleConfigurations: false,
+        extensions: [], submoduleCfg: [],
+        userRemoteConfigs: [[credentialsId: 'robhough', url: 'https://github.com/rch317/tf-salt.git ']]])
     }
 
     stage('Plan') {
