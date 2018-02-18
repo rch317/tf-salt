@@ -16,6 +16,7 @@ node {
         sh "rm status"
       }
 
+      sh "ls -al"
       // Initialize terraform
       sh "terraform init"
 
