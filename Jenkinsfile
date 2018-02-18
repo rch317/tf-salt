@@ -4,13 +4,9 @@ node {
       env.PATH = "${tfHome}:${env.PATH}"
     }
 
-    stage('Plan', concurrency: 1) {
-      TFVERSION = sh (
-        script: 'terraform --version',
-          returnStdout: true
-        ).trim()
-      )
-      
+    stage('Plan') {
+      TFVERSION = sh (script: 'terraform --version',returnStdout: true).trim()
+
       echo "Terraform Version:  ${TFVERSION} -- Workspace:  ${env.WORKSPACE}"
     }
     stage('Build') {
